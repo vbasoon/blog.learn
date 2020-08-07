@@ -1,6 +1,6 @@
 import React from 'react'
 import Article from './components/Article/Article'
-import articles from './data_old'
+import articles from './data'
 
 
 
