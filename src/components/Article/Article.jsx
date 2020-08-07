@@ -1,20 +1,32 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const Article = (props) => {
-   const { article } = props
-   const body = <section>{article.text}</section>
-   return (
-      <div className="Hello" style={{ color: 'green' }}>
-         <img src={article.avatar} alt="" />
-         <h1 style={{ textTransform: 'uppercase' }}>{article.title}</h1>
-         {body}
-         <h3>
-            Дата створення: {(new Date).toDateString(article.date)}<br />
+class Article extends Component {
+   constructor(props) {
+      super(props)
+   }
+
+   render() {
+      const { article } = this.props
+      console.log('---', this.props)
+      const body = <section>{article.text}</section>
+      return (
+         <div className="Hello" style={{ color: 'green' }}>
+            <img src={article.avatar} alt="" />
+            <h2 style={{ textTransform: 'uppercase' }}>{article.title}
+               <button className="btnClose" onClick={handleClick}>Close</button></h2>
+            {body}
+            <h3>
+               Дата створення: {(new Date).toDateString(article.date)}<br />
             Час створення: {(new Date).toTimeString(article.date)}
-         </h3>
-      </div>
+            </h3>
+         </div>
 
-   )
+      )
+   }
+}
+
+function handleClick() {
+   console.log('---', 'clicked')
 }
 
 export default Article
